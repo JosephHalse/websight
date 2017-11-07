@@ -51,7 +51,7 @@
 		// it can be gzip compressed on disk like other assets. Compressing via UnrealPak has the advantage of storing a smaller data
 		// file to IndexedDB, whereas gzip compressing to disk has the advantage of starting up the page slightly faster.
 		// If true, serve out 'UE4Game.data.gz', if false, serve out 'UE4Game.data'.
-		const dataFileIsGzipCompressed = false;
+		const dataFileIsGzipCompressed = true;
 
 		var Module = {
 			// state management
