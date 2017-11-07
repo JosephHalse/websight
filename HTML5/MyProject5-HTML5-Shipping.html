@@ -4,7 +4,7 @@
 	<title>MyProject5</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-   
+
 	<script>
 		// THIS IS TEMP -- to be removed when the following has been removed as well
 		// .../Engine/Source/Runtime/Engine/Private/ActiveSound.cpp
@@ -32,7 +32,7 @@
 		const explicitlyUseWebGL1 = (location.search.indexOf('webgl1') != -1);
 
 		// Add ?asmjs GET param to explicitly test the asm.js fallback version even if browser does support WebAssembly.
-      const explicitlyLoadedAsmJs = true;
+const explicitlyLoadedAsmJs = true;
 
 		// Deduce which version to load up.
 		var supportsWasm = (typeof WebAssembly === 'object' && typeof WebAssembly.Memory === 'function');
@@ -51,7 +51,7 @@
 		// it can be gzip compressed on disk like other assets. Compressing via UnrealPak has the advantage of storing a smaller data
 		// file to IndexedDB, whereas gzip compressing to disk has the advantage of starting up the page slightly faster.
 		// If true, serve out 'UE4Game.data.gz', if false, serve out 'UE4Game.data'.
-		const dataFileIsGzipCompressed = true;
+//		const dataFileIsGzipCompressed = false;
 
 		var Module = {
 			// state management
@@ -63,7 +63,7 @@
 			assetDownloadProgress: {}, // Track how many bytes of each needed asset has been downloaded so far.
 
 			UE4_indexedDBName: 'UE4_assetDatabase_MyProject5', // TODO Nick: this should be an ascii ID string without special characters that is unique to the project that is being packaged
-			UE4_indexedDBVersion: 201711071350, // Bump this number to invalidate existing IDB storages in browsers.
+			UE4_indexedDBVersion: 201711071559, // Bump this number to invalidate existing IDB storages in browsers.
 		};
 
 		// Tests if type === 'browser' or type === 'os' is 64-bit or not.
@@ -525,7 +525,7 @@ Module.locateFile = function(name) {
 			showWarningRibbon('Attempting to load the page via the "file://" protocol. This only works in Firefox, and even there only when not using compression, so attempting to load uncompressed assets. Please host the page on a web server and visit it via a "http://" URL.');
 			Module['shownFileProtocolWarning'] = true;
 		}
-		serveGzipped = true;
+		serveGzipped = false;
 	}
 
 	// uncompressing very large gzip files may slow down startup times.
