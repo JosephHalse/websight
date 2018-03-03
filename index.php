@@ -27,9 +27,14 @@ if (!$link) {
 
 echo "Success: A proper connection to MySQL was made! The my_db database is great." . PHP_EOL;
 echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
+echo "     ";
 echo $connectstr_dbhost;
+echo "     ";
 echo $connectstr_dbname;
+echo "     ";
 echo $connectstr_dbusername;
+echo "     ";
 echo $connectstr_dbpassword;
+echo "     ";
 mysqli_close($link);
 ?>
