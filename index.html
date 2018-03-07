@@ -7,16 +7,19 @@
 <body>
 <script>
 
-var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
-recognition.lang = 'en-US';
-recognition.interimResults = false;
-recognition.maxAlternatives = 5;
-recognition.start();
+    var recognition = new webkitSpeechRecognition();
+    recognition.continuous = true;
 
-recognition.onresult = function(event) {
-console.log('You said: ', event.results[0][0].transcript);
-};
+    var output = document.getElementById('output');
+    recognition.onresult = function(event) {
+      output.textContent = event.results[0][0].transcript;
+    };
+
 </script>
+    
+    <div id="output"></div>
+    <button onclick="recognition.start()">Start</button>
+    <button onclick="recognition.stop()">Stop</button>
 
 </body>
 </html>
