@@ -3,7 +3,7 @@
 function listen(){
 return  "<script>
 var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
-recognition.lang = 'en-US';
+recognition.lang = 'en-UK';
 recognition.interimResults = false;
 recognition.maxAlternatives = 5;
 recognition.start();
