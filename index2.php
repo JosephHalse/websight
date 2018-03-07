@@ -5,7 +5,7 @@ echo  "<script>
     recognition.continuous = true;
     var output = document.getElementById('output');
     recognition.onresult = function(event) {
-    alert(event.results[0][0].transcript);
+    document.write(event.results[0][0].transcript);
     };
 </script>";
 
