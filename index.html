@@ -2,15 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>dbtest</title>
+    <title>Title</title>
 </head>
 <body>
+<script>
 
-<form name="form" action="fileread.php" method="post">
-    <input type="text" name="input" id="input" value="">
-</form>
+var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
+recognition.lang = 'en-US';
+recognition.interimResults = false;
+recognition.maxAlternatives = 5;
+recognition.start();
 
-<?php echo $_POST['subject']; ?>
+recognition.onresult = function(event) {
+console.log('You said: ', event.results[0][0].transcript);
+};
+</script>
 
 </body>
 </html>
